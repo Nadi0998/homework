@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<body>
+    <h2>Пользователи, зарегистрированные на сайте</h2>
+    {% for User in object_list %}
+        <li>Имя:{{ User.first_name }}</li>
+        <a>Фамилия:{{ User.last_name }}</a>
+    {% endfor %}
+</body>
+</html>
