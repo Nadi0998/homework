@@ -1,11 +1,20 @@
 from django.contrib import admin
+from django.contrib.auth.admin import UserAdmin
 
-# Register your models here.
-# admin.py
-from django.contrib import admin
 from .models import Flower, User, Order, OrderDetail
+from .forms import CustomUserChangeForm
+
+
+class CustomUserAdmin(UserAdmin):
+    form = CustomUserChangeForm
+
+    fieldsets = UserAdmin.fieldsets + (
+        (None, {'fields': ('phone_number', 'birth_date')}),
+    )
+
 
 admin.site.register(Flower)
-admin.site.register(User)
+# admin.site.register(User)
+admin.site.register(User, CustomUserAdmin)
 admin.site.register(Order)
 admin.site.register(OrderDetail)

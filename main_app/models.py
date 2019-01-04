@@ -1,15 +1,12 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 # Create your models here.
 
 
-class User(models.Model):
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    mail_address = models.EmailField(max_length=255, unique=True)
+class User(AbstractUser):
     phone_number = models.CharField(max_length=12, unique=True)
     birth_date = models.DateField(null=True)
-    password = models.CharField(max_length=30)
 
 
 class Flower(models.Model):
