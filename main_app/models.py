@@ -5,7 +5,7 @@ from django.db import models
 
 
 class User(AbstractUser):
-    phone_number = models.CharField(max_length=12, unique=True)
+    phone_number = models.CharField(max_length=12)
     birth_date = models.DateField(null=True)
 
 

@@ -27,6 +27,7 @@
     <h2>Каталог цветов</h2>
     {% for Flower in object_list %}
         <h2><strong> {{ Flower.flower_name }}</strong></h2>
+            <p><img src="{{ Flower.img.url }}"> </p>
             <p>Цвет: {{ Flower.color }}</p>
             <p>Страна: {{ Flower.country }}</p>
             <p>Цена: {{ Flower.price }}</p>

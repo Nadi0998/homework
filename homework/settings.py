@@ -87,8 +87,14 @@ DATABASES = {
         'OPTIONS': {'charset': 'utf8'},
         'TEST_CHARSET': 'utf8',
 
+    }
 }
-}
+
+MEDIA_ROOT = (
+    BASE_DIR
+)
+
+MEDIA_URL = '/media/'
 
 
 # Password validation
