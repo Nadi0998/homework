@@ -117,14 +117,14 @@ MEDIA_URL = '/media/'
 AUTH_PASSWORD_VALIDATORS = []
 
 AUTH_USER_MODEL = 'main_app.User'
-
+#AUTH_USER_MODEL = 'core.User'           на хабре так написано
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 

@@ -19,7 +19,6 @@ class OrderView(ListView):
 class UserView(ListView):
     model = User
 
-# this is comment
 
 
 def static_main(request):

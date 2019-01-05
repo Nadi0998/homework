@@ -22,8 +22,6 @@ from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    staticfiles_urlpatterns(),
-    static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT),
     path('admin/', admin.site.urls),
     path('flowers/', FlowerView.as_view()),
     path('', static_main),
