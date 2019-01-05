@@ -28,4 +28,5 @@ urlpatterns = [
     path('users/', UserView.as_view()),
     path('orders/', OrderView.as_view()),
     path('accounts/', include('django.contrib.auth.urls'))
+    # path(r'', IndexView.as_view(), name='index')
 ]
