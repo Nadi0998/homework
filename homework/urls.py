@@ -29,9 +29,9 @@ urlpatterns = [
     path(r'accounts/register/', RegistrationView.as_view(form_class=CustomUserRegistrationForm), name='django_registration_register'),
     path('admin/', admin.site.urls),
     # path('flowers/', FlowerView.as_view()),
-    path('', static_main),
+    path('', static_main, name='main'),
     path('users/', UserView.as_view()),
     path('orders/', OrderView.as_view()),
-    # path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     path(r'flowers/', IndexView.as_view(), name='index')
 ]

@@ -9,8 +9,12 @@ from django.views.generic import TemplateView
 # Create your views here.
 
 
-class FlowerView(ListView):
-    model = Flower
+class FlowerView(TemplateView):
+    def get(self, *args, **kwargs):
+        data = {
+            'teacher': Flower.objects.filter(id=kwargs['id']).first(),
+        }
+        return render(self.request, 'flower_list.html', data)
 
 
 class OrderView(ListView):
@@ -58,3 +62,4 @@ class IndexView(TemplateView):
             'front_page': True
         }
         return render(self.request, 'index.html', data)
+

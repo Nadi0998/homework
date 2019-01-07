@@ -2,10 +2,23 @@
 {% load static %}
 {% block title %} Flower Store {% endblock %}
 {% block content %}
-    <h1>Главная страница магазина цветов</h1>
-    <ul>
-        <p><a href="/flowers">Цветы</a></p>
-        <p><a href="/accaunts">Пользователи</a></p>
-        <p><a href="/orders">Заказы</a></p>
-    </ul>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><a href="/flowers">Цветы</a></li>
+            <li><a href="/profil">Профиль</a></li>
+            <li><a href="/orders">Заказы</a> </li>
+            {% block user %}{% endblock %}
+        </ul>
+    </div>
+</nav>
+    <h2>Каталог цветов</h2>
+    {% for Flower in object_list %}
+        <h2><strong> {{ Flower.flower_name }}</strong></h2>
+            <p><img src="{{ Flower.img.url }}"> </p>
+            <p>Цвет: {{ Flower.color }}</p>
+            <p>Страна: {{ Flower.country }}</p>
+            <p>Цена: {{ Flower.price }}</p>
+            <button>Купить "надо как то сделать"</button>
+    {% endfor %}
 {% endblock %}
