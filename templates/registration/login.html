@@ -1,4 +1,4 @@
-{#{% extends 'main.html' %}#}
+{% extends '../base.html' %}
 
 {% load crispy_forms_tags %}
 
@@ -11,7 +11,7 @@
         {% if user.is_authenticated %}
         <p>У вас нет доступа.</p>
         {% else %}
-        <p>Здесь можно войти в систему.</p>
+        <p>Вход в систему.</p>
         {% endif %}
     {% endif %}
 
@@ -25,6 +25,6 @@
     </div>
     </form>
 
-    <p><a href="{% url 'password_reset' %}">Сменить пароль</a></p>
-{#    <p><a href="{% url 'django_registration_register' %}">Регистрация</a></p>#}
+    <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+    <p><a href="{% url 'django_registration_register' %}">Регистрация</a></p>
 {% endblock %}

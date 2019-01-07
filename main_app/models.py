@@ -5,26 +5,28 @@ from django.db import models
 
 
 class User(AbstractUser):
-    phone_number = models.CharField(max_length=12)
-    birth_date = models.DateField(null=True)
+    phone_number = models.CharField(max_length=12, verbose_name='Номер телефона')
+    birth_date = models.DateField(null=True, verbose_name='Дата рождения')
 
 
 class Flower(models.Model):
-    flower_name = models.CharField(max_length=90, unique=True)
-    price = models.IntegerField()
-    color = models.CharField(max_length=255)
-    country = models.CharField(max_length=50)
-    img = models.ImageField()
+    flower_name = models.CharField(max_length=90, unique=True, verbose_name='Название')
+    price = models.IntegerField(verbose_name='Цена')
+    color = models.CharField(max_length=255, verbose_name='Цвет')
+    country = models.CharField(max_length=50, verbose_name='Страна')
+    img = models.ImageField(upload_to='images/', blank=True, null=True,
+                               default='images/default.png',
+                               verbose_name='Изображение')
 
 
 class Order(models.Model):
-    order_date = models.DateField(auto_now_add=True)
-    flowers = models.ManyToManyField(Flower, through='OrderDetail')
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    total_price = models.IntegerField(null=True)
+    order_date = models.DateField(auto_now_add=True, verbose_name='Дата')
+    flowers = models.ManyToManyField(Flower, through='OrderDetail', verbose_name='Цветы')
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, verbose_name='Пользователь')
+    total_price = models.IntegerField(null=True, verbose_name='Итоговая стоимость')
 
 
 class OrderDetail(models.Model):
     order = models.ForeignKey(Order, on_delete=models.PROTECT)
-    flower = models.ForeignKey(Flower, models.SET_NULL, null=True)
-    quantity = models.IntegerField()
+    flower = models.ForeignKey(Flower, models.SET_NULL, null=True, verbose_name='Цветок')
+    quantity = models.IntegerField(verbose_name='Количество')

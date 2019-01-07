@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel= "stylesheet" type= "text/css" href= "C:\Users\pisar\PycharmProjects\homework\templates\Style_css.css">
-    <title>Flower Store</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Flower Store {% endblock %}
+{% block menu %}
     <h1>Главная страница магазина цветов</h1>
     <ul>
         <p><a href="/flowers">Цветы</a></p>
         <p><a href="/users">Пользователи</a></p>
         <p><a href="/orders">Заказы</a></p>
     </ul>
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        Заголовок страницы
+    {% endblock %}
+{#<script src="{% static "/js/jquery-3.3.1.js" %}"></script>#}
+{#    <script type="text/javascript" src="{% static "/js/bootstrap.js" %}"></script>#}
+{# hz #}
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+{#    {% block extrascripts %}{% endblock %}#}
+{#    {% block extrastyles %}{% endblock %}#}
+</head>
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li><a href="/pictures">Цветы</a></li>
+            <li><a href="/profile">Профиль</a></li>
+            <li><a href="/profile">Заказы</a> </li>
+            {% block user %}{% endblock %}
+        </ul>
+    </div>
+</nav>
+{% block content %}{% endblock %}
+
+</body>
+</html>
