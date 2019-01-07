@@ -8,17 +8,27 @@
 {#<script src="{% static "/js/jquery-3.3.1.js" %}"></script>#}
 {#    <script type="text/javascript" src="{% static "/js/bootstrap.js" %}"></script>#}
 {# hz #}
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
 {#    {% block extrascripts %}{% endblock %}#}
 {#    {% block extrastyles %}{% endblock %}#}
 </head>
 <body>
+<nav class="navbar navbar-light bg-light">
+        <div class="navbar-item">
+            {% if user.is_authenticated %}
+                <a href="{% url 'user_profile' %}">{{ user.get_username }}</a> | <a href="{% url 'logout' %}?next={{ request.path }}">Выйти</a>
+            {% else %}
+                Вы &mdash; гость. <a href="{% url 'login' %}?next={{ request.path }}">Войти</a> или
+                <a href="{% url 'django_registration_register' %}">зарегистрироваться</a>.
+            {% endif %}
+        </div>
+    </nav>
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li><a href="/pictures">Цветы</a></li>
-            <li><a href="/profile">Профиль</a></li>
-            <li><a href="/profile">Заказы</a> </li>
+            <li><a href="/flowers">Цветы</a></li>
+            <li><a href="/profil">Профиль</a></li>
+            <li><a href="/orders">Заказы</a> </li>
             {% block user %}{% endblock %}
         </ul>
     </div>

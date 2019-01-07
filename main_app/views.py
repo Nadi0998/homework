@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import DetailView, FormView, ListView
+from django.views.generic import DetailView, FormView, ListView, UpdateView
 from main_app.models import *
 from main_app.forms import *
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.views.generic import TemplateView
 
 # Create your views here.
 
@@ -38,6 +39,22 @@ class ProfileView(FormView):
             'username': model.username,
             'first_name': model.first_name,
             'last_name': model.last_name,
-            'avatar': model.avatar
         }
         return self.initial
+
+@method_decorator(login_required, name='dispatch')
+class UpdateProfileView(UpdateView):
+    model = User
+    fields = ['username', 'first_name', 'last_name']
+    success_url = '/accounts/profile'
+
+    def get_object(self):
+        return User.objects.get(id=self.request.user.id)
+
+class IndexView(TemplateView):
+    def get(self, *args, **kwargs):
+        data = {
+            'flowers': Flower.objects.all(),
+            'front_page': True
+        }
+        return render(self.request, 'index.html', data)
