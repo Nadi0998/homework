@@ -17,17 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from main_app.views import *
 from django_registration.backends.one_step.views import RegistrationView
-from . import settings
-
-from django.contrib.staticfiles.urls import static
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     # path(r'accounts/', include('django_registration.backends.one_step.urls')),
+    path('accounts/login', name='login'),
+    path('accounts/logout', name='logout'),
+    path('accounts/profile/', ProfileView.as_view(), name='user_profile'),
+    path('accounts/profile/update/', UpdateProfileView.as_view(), name='update_user_profile'),
+    path('accounts/register/', RegistrationView.as_view(form_class=CustomUserRegistrationForm), name='django_registration_register'),
     path('accounts/', include('django.contrib.auth.urls')),
-    path(r'accounts/profile/', ProfileView.as_view(), name='user_profile'),
-    path(r'accounts/profile/update/', UpdateProfileView.as_view(), name='update_user_profile'),
-    path(r'accounts/register/', RegistrationView.as_view(form_class=CustomUserRegistrationForm), name='django_registration_register'),
     path('admin/', admin.site.urls),
     path('flowers/', FlowerView.as_view()),
     path('', static_main, name='main'),
