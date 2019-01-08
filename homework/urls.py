@@ -24,7 +24,7 @@ urlpatterns = [
     path('accounts/logout', name='logout'),
     path('accounts/profile/', ProfileView.as_view(), name='user_profile'),
     path('accounts/profile/update/', UpdateProfileView.as_view(), name='update_user_profile'),
-    path('accounts/register/', RegistrationView.as_view(form_class=CustomUserRegistrationForm), name='django_registration_register'),
+    path('accounts/register/', RegistrationView.as_view(form_class=CustomUserRegistrationForm), name='register'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('admin/', admin.site.urls),
     path('flowers/', FlowerView.as_view()),
