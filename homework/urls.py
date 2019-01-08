@@ -19,7 +19,7 @@ from main_app.views import *
 from django_registration.backends.one_step.views import RegistrationView
 
 urlpatterns = [
-    path(r'accounts/', include('django_registration.backends.one_step.urls')),
+    path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/register/', RegistrationView.as_view(form_class=CustomUserRegistrationForm), name='register_user'),
 
     path('accounts/', include('django.contrib.auth.urls')),
