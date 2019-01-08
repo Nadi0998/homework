@@ -14,6 +14,11 @@
     <div>
         Это ваш профиль.
     </div>
+    {% if request.user.avatar %}
+    <div>
+        <img src="/{{ request.user.avatar }}" />
+    </div>
+    {% endif %}
     <form enctype="multipart/form-data" action="{% url 'update_user_profile' %}" method="post">
         {% csrf_token %}
         {{ form|crispy }}

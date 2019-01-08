@@ -10,7 +10,7 @@
     <ul>
     {% for flower in flowers %}
         <li>
-            <a href="{% url 'flower' flower.id %}">{{ flower.flower_name }}</a>: {{ flower.price }}
+            <a href="{% url 'flowers' flower.id %}">{{ flower.flower_name }}</a>: {{ flower.price }}
         </li>
     {% endfor %}
     </ul>

@@ -28,10 +28,11 @@ urlpatterns = [
     path(r'accounts/profile/update', UpdateProfileView.as_view(), name='update_user_profile'),
     path(r'accounts/register/', RegistrationView.as_view(form_class=CustomUserRegistrationForm), name='django_registration_register'),
     path('admin/', admin.site.urls),
-    # path('flowers/', FlowerView.as_view()),
+    path('flowers/', FlowerView.as_view()),
     path('', static_main, name='main'),
     path('users/', UserView.as_view()),
     path('orders/', OrderView.as_view()),
     path('accounts/', include('django.contrib.auth.urls')),
-    path(r'flowers/', IndexView.as_view(), name='index')
+    path(r'index/', IndexView.as_view(), name='index'),
+    path(r'flower/<int:id>', FlowerView.as_view(), name='department')
 ]

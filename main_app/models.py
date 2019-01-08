@@ -7,6 +7,7 @@ from django.db import models
 class User(AbstractUser):
     phone_number = models.CharField(max_length=12, verbose_name='Номер телефона')
     birth_date = models.DateField(null=True, verbose_name='Дата рождения')
+    avatar = models.ImageField(upload_to='static/images/users', verbose_name='Аватар', blank=True)
 
 
 class Flower(models.Model):
@@ -14,9 +15,7 @@ class Flower(models.Model):
     price = models.IntegerField(verbose_name='Цена')
     color = models.CharField(max_length=255, verbose_name='Цвет')
     country = models.CharField(max_length=50, verbose_name='Страна')
-    img = models.ImageField(upload_to='images/', blank=True, null=True,
-                               default='images/default.png',
-                               verbose_name='Изображение')
+    img = models.ImageField(upload_to='static/images', blank=True, null=True, default='images/default.png', verbose_name='Изображение')
 
 
 class Order(models.Model):
