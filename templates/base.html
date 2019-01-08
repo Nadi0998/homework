@@ -31,7 +31,7 @@
                 <a href="{% url 'logout' %}?next={{ request.path }}">Выйти</a>
             {% else %}
                 Вы &mdash; гость. <a href="{% url 'login' %}?next={{ request.path }}">Войти</a> или
-                <a href="{% url 'register' %}">зарегистрироваться</a>.
+                <a href="{% url 'register_user' %}">зарегистрироваться</a>.
             {% endif %}
         </div>
     </nav>
