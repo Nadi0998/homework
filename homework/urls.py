@@ -23,7 +23,7 @@ from django.contrib.staticfiles.urls import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    path(r'accounts/', include('django_registration.backends.one_step.urls')),
+    # path(r'accounts/', include('django_registration.backends.one_step.urls')),
 #    path(r'accounts/profile', ProfileView.as_view(), name='user_profile'),
 #    path(r'accounts/profile/update', UpdateProfileView.as_view(), name='update_user_profile'),
 #    path(r'accounts/register/', RegistrationView.as_view(form_class=CustomUserRegistrationForm), name='django_registration_register'),
@@ -32,7 +32,7 @@ urlpatterns = [
     path('', static_main, name='main'),
     path('users/', UserView.as_view()),
     path('orders/', OrderView.as_view()),
-#    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
     path(r'index/', IndexView.as_view(), name='index'),
     path(r'flower/<int:id>', FlowerView.as_view(), name='department')
 ]
