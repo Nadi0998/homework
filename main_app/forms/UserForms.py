@@ -18,6 +18,8 @@ class CustomUserRegistrationForm(RegistrationForm):
         )
 
 
+
+
 class CustomUserChangeForm(UserChangeForm):
     class Meta(UserChangeForm.Meta):
         model = User
