@@ -21,7 +21,7 @@ from main_app.forms.UserForms import CustomUserRegistrationForm
 from django_registration.backends.one_step.views import RegistrationView
 
 urlpatterns = [
-    path(r'^$', login_redirect, name='login_redirect'),
+    path(r'', login_redirect, name='login_redirect'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/register/',
          RegistrationView.as_view(form_class=CustomUserRegistrationForm, ),
