@@ -5,6 +5,7 @@ from main_app.models import Flower, Order
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
+        exclude = ["order", "flower"]
 
     flowers = forms.ModelMultipleChoiceField(queryset=Flower.objects.all())
 
