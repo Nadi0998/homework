@@ -29,7 +29,7 @@ class FlowerView(TemplateView, OrderOfFlower):
             'add-form': FlowerForms.AddFlowerForm(),
             'form': FlowerForms.SetFlowerPhotoForm()  # TODO: what is this?
         }
-        return render(self.request, 'flower.html', data)
+        return render(self.request, 'main_app/flower_list.html', data)
 
 # class FlowerView(TemplateView):
 #     def get(self, *args, **kwargs):
