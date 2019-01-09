@@ -48,6 +48,7 @@ class UsersView(ListView):
     model = User
 
 
+@login_required(login_url='accounts/login')
 def static_main(request):
     return render(request, 'main.html')
 
