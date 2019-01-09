@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from main_app.views import *
+from homework.views import login_redirect
 from main_app.forms.UserForms import CustomUserRegistrationForm
 from django_registration.backends.one_step.views import RegistrationView
 
