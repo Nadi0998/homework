@@ -92,5 +92,5 @@ class IndexView(TemplateView):
 
 class OrdersView(FormView):
     model = Order
-    template_name = None  # TODO
+    template_name = 'main_app/order_list.html'  # TODO
     form_class = OrderForms.OrderForm
