@@ -16,23 +16,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from main_app.views import *
+from main_app.forms.UserForms import CustomUserRegistrationForm
 from django_registration.backends.one_step.views import RegistrationView
 
 urlpatterns = [
-    path('accounts/', include('django_registration.backends.one_step.urls')),
-    path('accounts/register/', RegistrationView.as_view(form_class=CustomUserRegistrationForm), name='register_user'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/register/',
+         RegistrationView.as_view(form_class=CustomUserRegistrationForm),
+         name='django_registration_register'),
 
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('django_registration.backends.one_step.urls')),
     path('accounts/profile/', ProfileView.as_view(), name='user_profile'),
-    path('accounts/profile/update/', UpdateProfileView.as_view(), name='update_user_profile'),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/profile/edit/', EditProfileView.as_view(), name='edit_user_profile'),
     path('admin/', admin.site.urls),
 
-    path('flowers/', FlowerView.as_view()),
-    path('users/', UserView.as_view()),
-    path('orders/', OrderView.as_view()),
-    path(r'index/', IndexView.as_view(), name='index'),
-    path(r'flower/<int:id>', FlowerView.as_view(), name='department'),
+    path('users/', UsersView.as_view()),
+    path('orders/', OrdersView.as_view()),
+    path('index/', IndexView.as_view(), name='index'),  # TODO: is this required?
+    path('flowers/', FlowerView.as_view(), name='flowers'),
+    path(r'flower/<int:id>', FlowerView.as_view()),
 
     path('', static_main, name='main'),
 ]

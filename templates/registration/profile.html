@@ -1,4 +1,4 @@
-{% extends 'main.html' %}
+{% extends 'base.html' %}
 {% load static %}
 
 {% load crispy_forms_tags %}
@@ -16,10 +16,10 @@
     </div>
     {% if request.user.avatar %}
     <div>
-        <img src="/{{ request.user.avatar }}" />
+        <img src="/{{ request.user.avatar }}" alt="Your avatar"/>
     </div>
     {% endif %}
-    <form enctype="multipart/form-data" action="{% url 'update_user_profile' %}" method="post">
+    <form enctype="multipart/form-data" action="{% url 'edit_user_profile' %}" method="post">
         {% csrf_token %}
         {{ form|crispy }}
         <button type="submit" class="btn btn-primary">Сохранить</button>

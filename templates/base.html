@@ -1,40 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-<head >
+{% load static %}
+<head>
     <meta charset="UTF-8">
     {% block title %}
         Заголовок страницы
     {% endblock %}
-{#<script src="{% static "/js/jquery-3.3.1.js" %}"></script>#}
-{#    <script type="text/javascript" src="{% static "/js/bootstrap.js" %}"></script>#}
-{# hz #}
-    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
-{#    {% block extrascripts %}{% endblock %}#}
-{#    {% block extrastyles %}{% endblock %}#}
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+    {% block extrascripts %}{% endblock %}
+    {% block extrastyles %}{% endblock %}
     <style>
         body{
             background: url("static/images/back.jpg") no-repeat;
             background-size: 100%;
         }
-        .navbar-default{
-            margin-left: 500px; /* Отступ слева */
-            text-align: center;
-            font-family: Lobster;
-            font-size: x-large;
-        }
+        {#.navbar-default{#}
+        {#    margin-left: 500px; /* Отступ слева */#}
+        {#    text-align: center;#}
+        {#    font-family: Lobster;#}
+        {#    font-size: x-large;#}
+        {#}#}
     </style>
 </head>
 <body>
-<nav class="navbar navbar-light bg-light">
-        <div class="navbar-item">
-            {% if user.is_authenticated %}
-                <a href="{% url 'user_profile' %}">{{ user.get_username }}</a> | <a href="{% url 'logout' %}?next={{ request.path }}">Выйти</a>
+<br>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{% url '' %}">Магазин Цветов</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+            <div class="navbar-item">
+              <a href="{% url 'user_profile' %}">{{ user.get_username }}</a>
+            </div>
+              <div class="navbar-item">
+                <a href="{% url 'logout' %}?next={{ request.path }}">Выйти</a>
+              </div>
             {% else %}
-                Вы &mdash; гость. <a href="{% url 'login' %}?next={{ request.path }}">Войти</a> или
-                <a href="{% url 'register_user' %}">зарегистрироваться</a>.
+              <div class="navbar-item">
+                Вы &mdash; гость.
+              </div>
+              <div class="navbar-item">
+              <a href="{% url 'login' %}?next={{ request.path }}">Войти</a>
+              </div>
+              <div class="navbar-item">
+                <a href="{% url 'register_user' %}">Зарегистрироваться</a>
+              </div>
             {% endif %}
         </div>
-    </nav>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
 
 {% block content %}{% endblock %}
 

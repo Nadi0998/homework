@@ -7,24 +7,26 @@
 {% endblock %}
 
 {% block content %}
-    {% if next %}
-        {% if user.is_authenticated %}
-        <p>У вас нет доступа.</p>
-        {% else %}
-        <p>Вход в систему.</p>
+    <div class="container">
+        {% if next %}
+            {% if user.is_authenticated %}
+            <p>У вас нет доступа.</p>
+            {% else %}
+            <p>Вход в систему.</p>
+            {% endif %}
         {% endif %}
-    {% endif %}
 
-    <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    {{ form|crispy }}
+        <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form|crispy }}
 
-    <div>
-      <input type="submit" class="btn btn-success" value="Войти!" />
-      <input type="hidden" name="next" value="{{ next }}" />
+        <div>
+          <input type="submit" class="btn btn-success" value="Войти!" />
+          <input type="hidden" name="next" value="{{ next }}" />
+        </div>
+        </form>
+
+        <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
+        <p><a href="{% url 'django_registration_register' %}">Регистрация</a></p>
     </div>
-    </form>
-
-    <p><a href="{% url 'password_reset' %}">Забыли пароль?</a></p>
-    <p><a href="{% url 'register_user' %}">Регистрация</a></p>
 {% endblock %}

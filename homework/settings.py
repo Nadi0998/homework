@@ -140,3 +140,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = "./static"
 
 LOGIN_REDIRECT_URL = '/'
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
