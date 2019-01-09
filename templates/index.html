@@ -5,13 +5,14 @@
 {% endblock %}
 
 {% block content %}
+    <div class="container">
     <h1>Ассортимент</h1>
 
-    <ul>
+    <div class="list-group">
     {% for flower in flowers %}
-        <li>
-            <a href="{% url 'flowers' flower.id %}">{{ flower.flower_name }}</a>: {{ flower.price }}
-        </li>
+        <a class="list-group-item" href="{% url 'flowers' flower.id %}">{{ flower.flower_name }}</a>: {{ flower.price }}
     {% endfor %}
-    </ul>
+    </div>
+    </div>
+
 {% endblock %}
