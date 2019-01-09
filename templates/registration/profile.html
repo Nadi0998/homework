@@ -8,6 +8,7 @@
 {% endblock %}
 
 {% block content %}
+    <div class="container">
     <h1>
         Привет, {{ request.user.first_name|default:request.user.username }}!
     </h1>
@@ -24,4 +25,5 @@
         {{ form|crispy }}
         <button type="submit" class="btn btn-primary">Сохранить</button>
     </form>
+    </div>
 {% endblock %}
