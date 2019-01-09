@@ -30,8 +30,8 @@ urlpatterns = [
     path('accounts/profile/edit/', EditProfileView.as_view(), name='edit_user_profile'),
     path('admin/', admin.site.urls),
 
-    path('users/', UsersView.as_view()),
-    path('orders/', OrdersView.as_view()),
+    path('users/', UsersView.as_view(), name='users'),
+    path('orders/', OrdersView.as_view(), name='orders'),
     path('index/', IndexView.as_view(), name='index'),  # TODO: is this required?
     path('flowers/', FlowerView.as_view(), name='flowers'),
     path(r'flower/<int:id>', FlowerView.as_view()),
