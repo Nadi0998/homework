@@ -2,11 +2,14 @@ from django.shortcuts import render
 from django.views.generic import FormView, ListView, UpdateView
 from main_app.models import *
 from main_app.forms import *
+from homework.views import redirect_view
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
 
 # Create your views here.
+
+class login_redirect
 
 
 class OrderOfFlower:

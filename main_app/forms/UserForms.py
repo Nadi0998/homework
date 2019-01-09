@@ -15,7 +15,6 @@ class CustomUserRegistrationForm(RegistrationForm):
             'email',
             'password1',
             'password2',
-
         )
 
 
