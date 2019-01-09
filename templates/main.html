@@ -4,13 +4,11 @@
 {% block title %} Flower Store {% endblock %}
 
 {% block content %}
-    <div class="container">
-        <ul class="list-group">
-            <li class="list-group-item"><a href="{% url 'index' %}">Цветы</a></li>
-            <li class="list-group-item"><a href="{% url 'user_profile' %}">Профиль</a></li>
-            <li class="list-group-item"><a href="{% url 'orders' %}">Заказы</a> </li>
-            {% block user %}{% endblock %}
-        </ul>
+    <div class="list-group">
+        <a class="list-group-item" href="{% url 'index' %}">Цветы</a>
+        <a class="list-group-item" href="{% url 'user_profile' %}">Профиль</a>
+        <a class="list-group-item" href="{% url 'orders' %}">Заказы</a>
+        {% block user %}{% endblock %}
     </div>
 {#    <h2>Каталог цветов</h2>#}
 {#    {% for Flower in object_list %}#}
