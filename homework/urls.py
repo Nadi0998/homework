@@ -38,5 +38,5 @@ urlpatterns = [
     path('flowers/', FlowerView.as_view(), name='flowers'),
     path(r'flower/<int:id>', FlowerView.as_view()),
 
-    path('', static_main, name='main'),
+    # path('', static_main, name='main'),
 ]
