@@ -40,6 +40,13 @@ def edit_flower(request):
                 flower.save(commit=True)
 
 
+def set_flower_photo(request):
+    if request.method == 'POST' and request.is_ajax():
+        form = FlowerForms.SetFlowerPhotoForm(request)
+        if form.is_valid():
+            form.save(commit=True)
+
+
 def add_flower(request):
     pass
 
