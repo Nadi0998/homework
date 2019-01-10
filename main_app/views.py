@@ -56,7 +56,6 @@ class OrderOfFlower:
         return paginator.get_page(self.request.GET.get('page'))
 
 
-@ajax
 class FlowerView(TemplateView, OrderOfFlower):
     def get(self, *args, **kwargs):
         data = {
