@@ -59,7 +59,7 @@ class OrderOfFlower:
 @ajax
 class FlowerView(TemplateView, OrderOfFlower):
     def get(self, *args, **kwargs):
-        flower =
+        # flower =
         data = {
             'flower': Flower.objects.get(id=flower),
             'add-form': FlowerForms.AddFlowerForm(),
