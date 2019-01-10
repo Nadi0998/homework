@@ -39,7 +39,7 @@ def edit_flower(request):
                     flower['img'] = request.POST['img']
                 flower.save(commit=True)
 
-
+@ajax
 def set_flower_photo(request):
     if request.method == 'POST' and request.is_ajax():
         form = FlowerForms.SetFlowerPhotoForm(request)
