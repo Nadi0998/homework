@@ -82,7 +82,7 @@ class UpdateFlowerView(UpdateView):
     fields = ['img']
 
     def get_object(self):
-        return FlowerForms.objects.get(id=self.kwargs['id'])
+        return Flower.objects.get(id=self.kwargs['id'])
 
     def get_success_url(self):
         return reverse('teacher', kwargs={'id': self.object.id})
