@@ -27,11 +27,12 @@ urlpatterns = [
 
     path(r'accounts/', include('django_registration.backends.one_step.urls')),
     path(r'accounts/profile/', ProfileView.as_view(), name='user_profile'),
-    path(r'accounts/profile/edit/', EditProfileView.as_view(), name='edit_user_profile'),
+    # path(r'accounts/profile/edit/', EditProfileView.as_view(), name='edit_user_profile'),
     path(r'admin/', admin.site.urls),
 
     path(r'^users/', UsersView.as_view(), name='users'),
     path(r'^orders/', OrdersView.as_view(), name='orders'),
+    path('order/<int:id>', OrdersView.as_view(), name='order'),
     path(r'flowers/', IndexView.as_view(), name='flowers'),
     path(r'flower/<int:id>', FlowerView.as_view(), name='flower'),
     path(r'flower/set_photo/<int:id>', UpdateFlowerView.as_view(), name='set_flower_photo'),

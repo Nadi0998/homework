@@ -31,15 +31,15 @@ class CustomUserRegistrationForm(RegistrationForm):
         return user
 
 
-class CustomUserChangeForm(UserChangeForm):
-    class Meta(UserChangeForm.Meta):
-        model = User
-        fields = (
-            'first_name',
-            'last_name',
-            'avatar',
-        )
-
+# class CustomUserChangeForm(UserChangeForm):
+#     class Meta(UserChangeForm.Meta):
+#         model = User
+#         fields = (
+#             'first_name',
+#             'last_name',
+#             'avatar',
+#         )
+#
 
 class UpdateUserForm(forms.ModelForm):
     class Meta:

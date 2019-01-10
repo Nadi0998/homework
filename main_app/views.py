@@ -57,6 +57,7 @@ def add_flower(request):
 
 
 class OrderOfFlower:
+
     def prepare_subjects(self, flower, request):
         from django.db.models import Count
         from django.db.models import Q
@@ -126,16 +127,16 @@ class ProfileView(FormView):
         return self.initial
 
 
-@method_decorator(login_required, name='dispatch')
-class EditProfileView(UpdateView):  # is this really needed?
-    model = User
-    form_class = UserForms.CustomUserChangeForm
-
-    # fields = ['username', 'first_name', 'last_name', 'avatar']
-    success_url = '/accounts/profile'
-
-    def get_object(self):
-        return User.objects.get(pk=self.request.user.id)
+# @method_decorator(login_required, name='dispatch')
+# class EditProfileView(UpdateView):  # is this really needed?
+#     model = User
+#     form_class = UserForms.CustomUserChangeForm
+#
+#     # fields = ['username', 'first_name', 'last_name', 'avatar']
+#     success_url = '/accounts/profile'
+#
+#     def get_object(self):
+#         return User.objects.get(pk=self.request.user.id)
 
 
 class IndexView(TemplateView):

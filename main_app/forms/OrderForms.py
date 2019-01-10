@@ -1,10 +1,17 @@
 from django import forms
-from main_app.models import Flower, Order
+from main_app.models import Flower, Order, OrderDetail
 
 
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
+        exclude = ['user', '']
+
+
+
+class OrderDetailForm(forms.ModelForm):
+    class Meta:
+        model = OrderDetail
         exclude = ["order", "flower"]
 
     flowers = forms.ModelMultipleChoiceField(queryset=Flower.objects.all())

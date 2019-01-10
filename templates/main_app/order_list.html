@@ -1,11 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Orders</title>
-</head>
-<body>
-    <h2>Заказы</h2>
-    <a>Пока нет заказов</a>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+    {% block title %}
+        Orders
+    {% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for order in orders %}
+        <a class="list-group-item" href="{% url 'order' order.pk %}">
+        <p>{{ order.order_date }}</p>
+        <p>{{ order.total_price }}</p>
+        </a>
+    {% endfor %}
+</div>
+{% endblock %}
