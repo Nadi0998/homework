@@ -13,7 +13,7 @@ class CustomUserRegistrationForm(RegistrationForm):
             'first_name',
             'last_name',
             'email',
-            'phone_number'
+            'phone_number',
             'password1',
             'password2',
             'avatar'
