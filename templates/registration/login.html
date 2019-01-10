@@ -6,6 +6,14 @@
     Вход в систему
 {% endblock %}
 
+{% block javascript %}
+  <script>
+    $("#username").change(function () {
+      console.log( $(this).val() );
+    });
+  </script>
+{% endblock %}
+
 {% block content %}
     <div class="container">
         {% if next %}
