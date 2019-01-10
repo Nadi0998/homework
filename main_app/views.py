@@ -85,7 +85,7 @@ class UpdateFlowerView(UpdateView):
         return Flower.objects.get(id=self.kwargs['id'])
 
     def get_success_url(self):
-        return reverse('teacher', kwargs={'id': self.object.id})
+        return reverse('flower', kwargs={'id': self.object.id})
 
 # class FlowerView(TemplateView):
 #     def get(self, *args, **kwargs):
