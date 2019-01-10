@@ -10,7 +10,11 @@
 
     <div class="list-group">
     {% for flower in flowers %}
-        <a class="list-group-item" href="{% url 'flower' flower.pk %}">{{ flower.flower_name }}</a>: {{ flower.price }}
+        <a class="list-group-item" href="{% url 'flower' flower.pk %}">
+            {{ flower.img }}
+            {{ flower.flower_name }}:
+            {{ flower.price }}
+        </a>
     {% endfor %}
     </div>
     </div>
