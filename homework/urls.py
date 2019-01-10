@@ -32,7 +32,7 @@ urlpatterns = [
 
     path(r'^users/', UsersView.as_view(), name='users'),
     path(r'^orders/', OrdersView.as_view(), name='orders'),
-    path(r'^flowers/', IndexView.as_view(), name='flowers'),
+    path(r'flowers/', IndexView.as_view(), name='flowers'),
     path(r'^flower/edit$', edit_flower, name='edit_flower'),
     path(r'^flower/add$', add_flower, name='add_flower'),
     path(r'^flower/get$', get_flower),
