@@ -15,7 +15,7 @@ class Flower(models.Model):
     price = models.IntegerField(verbose_name='Цена')
     color = models.CharField(max_length=255, verbose_name='Цвет')
     country = models.CharField(max_length=50, verbose_name='Страна')
-    img = models.ImageField(upload_to='static/images', blank=True, null=True, default='images/default.png', verbose_name='Изображение')
+    img = models.ImageField(upload_to='images', blank=True, null=True, default='images/default.png', verbose_name='Изображение')
 
 
 class Order(models.Model):
