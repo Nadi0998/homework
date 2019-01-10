@@ -12,10 +12,10 @@
         {% csrf_token %}
         {{ form|crispy }}
 
-        <div>
-          <input type="submit" class="btn btn-success" value="Зарегистрироваться" />
-          <input type="hidden" name="next" value="{{ next }}" />
-        </div>
+{#        <div>#}
+{#          <input type="submit" class="btn btn-success" value="Зарегистрироваться" />#}
+{#          <input type="hidden" name="next" value="{{ next }}" />#}
+{#        </div>#}
         </form>
     </div>
 {% endblock %}
