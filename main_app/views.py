@@ -1,4 +1,7 @@
+import sys
+
 from django.shortcuts import render
+from django.urls import reverse
 from django.views.generic import FormView, ListView, UpdateView
 from main_app.models import *
 from main_app.forms import *
@@ -6,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
 from django_ajax.decorators import ajax
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
@@ -71,6 +75,17 @@ class FlowerView(TemplateView, OrderOfFlower):
             'form': FlowerForms.SetFlowerPhotoForm()  # TODO: what is this?
         }
         return render(self.request, 'main_app/flower_item.html', data)
+
+
+class UpdateFlowerView(UpdateView):
+    model = Flower
+    fields = ['img']
+
+    def get_object(self):
+        return FlowerForms.objects.get(id=self.kwargs['id'])
+
+    def get_success_url(self):
+        return reverse('teacher', kwargs={'id': self.object.id})
 
 # class FlowerView(TemplateView):
 #     def get(self, *args, **kwargs):

@@ -34,7 +34,7 @@ urlpatterns = [
     path(r'^orders/', OrdersView.as_view(), name='orders'),
     path(r'flowers/', IndexView.as_view(), name='flowers'),
     path(r'flower/<int:id>', FlowerView.as_view(), name='flower'),
-    path(r'flower/set_photo', set_flower_photo, name='set_flower_photo'),
+    path(r'flower/set_photo', UpdateFlowerView.as_view(), name='set_flower_photo'),
     path(r'^flower/edit$', edit_flower, name='edit_flower'),
     path(r'^flower/add$', add_flower, name='add_flower'),
     path(r'^flower/get$', get_flower),
