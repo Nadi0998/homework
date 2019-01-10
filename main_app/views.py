@@ -5,9 +5,43 @@ from main_app.forms import *
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
+from django_ajax.decorators import ajax
 
 # Create your views here.
 
+@ajax
+def get_flower(request):
+    if request.method != 'GET':
+        return
+    flower = Flower.objects.get(pk=request.GET['id'])
+    return {'price': flower.price,
+            'country': flower.country,
+            'name': flower.flower_name,
+            'color': flower.color,
+            'img': flower.img}
+
+
+@ajax
+def edit_flower(request):
+    if request.method == 'POST':
+        if request.is_ajax():
+            flower = Flower.objects.get(pk=request.POST['id'])
+            if flower:
+                if request.POST['flower_name']:
+                    flower['flower_name'] = request.POST['flower_name']
+                if request.POST['price']:
+                    flower['price'] = request.POST['price']
+                if request.POST['color']:
+                    flower['color'] = request.POST['color']
+                if request.POST['country']:
+                    flower['country'] = request.POST['country']
+                if request.POST['img']:
+                    flower['img'] = request.POST['img']
+                flower.save(commit=True)
+
+
+def add_flower(request):
+    pass
 
 
 class OrderOfFlower:
@@ -22,22 +56,23 @@ class OrderOfFlower:
         return paginator.get_page(self.request.GET.get('page'))
 
 
+@ajax
 class FlowerView(TemplateView, OrderOfFlower):
     def get(self, *args, **kwargs):
-        flower = kwargs['id']
+        flower =
         data = {
             'flower': Flower.objects.get(id=flower),
             'add-form': FlowerForms.AddFlowerForm(),
             'form': FlowerForms.SetFlowerPhotoForm()  # TODO: what is this?
         }
-        return render(self.request, 'main_app/flower_list.html', data)
+        return render(self.request, 'main_app/flower_item.html', data)
 
 # class FlowerView(TemplateView):
 #     def get(self, *args, **kwargs):
 #         data = {
 #             'teacher': Flower.objects.filter(id=kwargs['id']).first(),
 #         }
-#         return render(self.request, 'flower_list.html', data)
+#         return render(self.request, 'flower_item.html', data)
 
 
 # class OrderView(ListView):

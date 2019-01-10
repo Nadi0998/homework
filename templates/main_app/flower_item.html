@@ -1,0 +1,43 @@
+{% extends base.html %}
+    {% block title %}
+        Flowers
+    {% endblock %}
+    {% block extrastyles %}
+    <style>
+        body{
+            background-color: #fff;
+        }
+        p{
+            color: #000000;
+            margin-left: 20px;
+            background-color: #ffcabd;
+            padding: 5px;
+            width: 400px;
+        }
+        strong{
+            color: #d42e0d;
+        }
+        h2{
+            color: #801818;
+        }
+    </style>
+    {% endblock %}
+
+
+{% block content %}
+<div id="container">
+    <h2>Вы просматриваете: </h2>
+        <h2><strong> {{ Flower.flower_name }}</strong></h2>
+            <p><img id="id_img" src="{{ Flower.img.url }}"> </p>
+            <p id="id_color">Цвет: {{ Flower.color }}</p>
+            <p id="id_country">Страна: {{ Flower.country }}</p>
+            <p id="id_price">Цена: {{ Flower.price }}</p>
+</div>
+{% endblock %}
+
+{% block javascript %}
+    $(
+{% endblock %}
+
+
+

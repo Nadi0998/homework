@@ -16,27 +16,26 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from main_app.views import *
-from homework.views import login_redirect
 from main_app.forms.UserForms import CustomUserRegistrationForm
 from django_registration.backends.one_step.views import RegistrationView
 
 urlpatterns = [
-    # path(r'', login_redirect, name='login_redirect'),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/register/',
+    path(r'^accounts/', include('django.contrib.auth.urls')),
+    path(r'^accounts/register/',
          RegistrationView.as_view(form_class=CustomUserRegistrationForm),
          name='django_registration_register'),
 
-    path('accounts/', include('django_registration.backends.one_step.urls')),
-    path('accounts/profile/', ProfileView.as_view(), name='user_profile'),
-    path('accounts/profile/edit/', EditProfileView.as_view(), name='edit_user_profile'),
-    path('admin/', admin.site.urls),
+    path(r'^accounts/', include('django_registration.backends.one_step.urls')),
+    path(r'^accounts/profile/', ProfileView.as_view(), name='user_profile'),
+    path(r'^accounts/profile/edit/', EditProfileView.as_view(), name='edit_user_profile'),
+    path(r'^admin/', admin.site.urls),
 
-    path('users/', UsersView.as_view(), name='users'),
-    path('orders/', OrdersView.as_view(), name='orders'),
-    path('index/', IndexView.as_view(), name='index'),  # TODO: is this required?
-    path('flowers/', FlowerView.as_view(), name='flowers'),
-    path(r'flower/<int:id>', FlowerView.as_view()),
+    path(r'^users/', UsersView.as_view(), name='users'),
+    path(r'^orders/', OrdersView.as_view(), name='orders'),
+    path(r'^flowers/', IndexView.as_view(), name='flowers'),
+    path(r'^flower/edit$', edit_flower, name='edit_flower'),
+    path(r'^flower/add$', add_flower, name='add_flower'),
+    path(r'^flower/get$', get_flower),
 
     path('', static_main, name='main'),
 ]

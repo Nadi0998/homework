@@ -39,7 +39,6 @@ class CustomUserChangeForm(UserChangeForm):
         fields = (
             'first_name',
             'last_name',
-            'phone_number',
             'avatar',
         )
 
