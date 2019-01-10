@@ -24,8 +24,7 @@ urlpatterns = [
     # path(r'', login_redirect, name='login_redirect'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/register/',
-         RegistrationView.as_view(form_class=CustomUserRegistrationForm,
-                                  template_name='registration/register.html'),
+         RegistrationView.as_view(form_class=CustomUserRegistrationForm),
          name='django_registration_register'),
 
     path('accounts/', include('django_registration.backends.one_step.urls')),
