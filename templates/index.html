@@ -12,7 +12,8 @@
     {% for flower in flowers %}
         <a class="list-group-item" href="{% url 'flower' flower.pk %}">
             <img src="{{ flower.img.url }}"
-            sizes="(max-width: 600px) 300px, (min-width: 600px) 300px">
+            width="300px"
+            height="300px">
             {{ flower.flower_name }}:
             {{ flower.price }}
         </a>
