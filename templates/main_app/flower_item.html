@@ -35,11 +35,13 @@
             <p id="id_color">Цвет: {{ flower.color }}</p>
             <p id="id_country">Страна: {{ flower.country }}</p>
             <p id="id_price">Цена: {{ flower.price }}</p>
+    {% if request.user.is_staff %}
         <form enctype="multipart/form-data" action="{% url 'set_flower_photo' flower.pk %}" method="post">
             {% csrf_token %}
             {{ form|crispy }}
             <button type="submit" class="btn btn-primary">Сохранить</button>
         </form>
+    {% endif %}
 </div>
 {% endblock %}
 
