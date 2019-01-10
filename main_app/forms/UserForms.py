@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserChangeForm
 from django_registration.forms import RegistrationForm
 
-from main_app.models import User, Flower, Order
+from main_app.models import User
 
 
 class CustomUserRegistrationForm(RegistrationForm):
@@ -18,17 +18,17 @@ class CustomUserRegistrationForm(RegistrationForm):
             'avatar'
         )
 
-    def save(self, commit=True):
-        user = super(CustomUserRegistrationForm, self).save(commit=False)
-        user.first_name = self.cleaned_data['first_name']
-        user.last_name = self.cleaned_data['last_name']
-        user.email = self.cleaned_data['email']
-        user.avatar = self.cleaned_data['avatar']
-
-        if commit:
-            user.save()
-
-        return user
+    # def save(self, commit=True):
+    #     user = super(CustomUserRegistrationForm, self).save(commit=False)
+    #     user.first_name = self.cleaned_data['first_name']
+    #     user.last_name = self.cleaned_data['last_name']
+    #     user.email = self.cleaned_data['email']
+    #     user.avatar = self.cleaned_data['avatar']
+    #
+    #     if commit:
+    #         user.save()
+    #
+    #     return user
 
 
 class CustomUserChangeForm(UserChangeForm):
