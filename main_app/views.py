@@ -135,8 +135,8 @@ class EditProfileView(UpdateView):  # is this really needed?
     fields = ['username', 'first_name', 'last_name', 'avatar']
     success_url = '/accounts/profile'
 
-    # def get_object(self):
-    #     return User.objects.get(id=self.request.user.id)
+    def get_object(self):
+        return User.objects.get(pk=self.request.user.id)
 
 
 class IndexView(TemplateView):
