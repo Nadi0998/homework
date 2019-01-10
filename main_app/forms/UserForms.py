@@ -14,6 +14,7 @@ class CustomUserRegistrationForm(RegistrationForm):
             'last_name',
             'email',
             'phone_number',
+            'birth_date',
             'password1',
             'password2',
             'avatar'
@@ -35,6 +36,12 @@ class CustomUserRegistrationForm(RegistrationForm):
 class CustomUserChangeForm(UserChangeForm):
     class Meta(UserChangeForm.Meta):
         model = User
+        fields = (
+            'first_name',
+            'last_name',
+            'phone_number',
+            'avatar',
+        )
 
 
 class UpdateUserForm(forms.ModelForm):

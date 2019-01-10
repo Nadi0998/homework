@@ -74,6 +74,7 @@ class ProfileView(FormView):
 @method_decorator(login_required, name='dispatch')
 class EditProfileView(UpdateView):  # is this really needed?
     model = User
+    form_class = UserForms.CustomUserChangeForm
     fields = ['username', 'first_name', 'last_name', 'avatar']
     success_url = '/accounts/profile'
 
