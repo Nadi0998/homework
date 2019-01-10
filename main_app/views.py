@@ -117,9 +117,8 @@ class ProfileView(FormView):
 
     def get_initial(self):
         super(ProfileView, self).get_initial()
-        model = User.objects.get(id=self.request.user.id)
+        model = User.objects.get(pk=self.request.user.id)
         self.initial = {
-            'username': model.username,
             'first_name': model.first_name,
             'last_name': model.last_name,
             'avatar': model.avatar

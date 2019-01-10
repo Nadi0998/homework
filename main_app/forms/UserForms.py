@@ -44,7 +44,7 @@ class CustomUserChangeForm(UserChangeForm):
 class UpdateUserForm(forms.ModelForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'phone_number', 'avatar']
+        fields = ['first_name', 'last_name', 'avatar']
 
     def clean_image(self):
         image = self.cleaned_data.get('avatar_file', False)
