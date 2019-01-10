@@ -27,11 +27,11 @@
 {% block content %}
 <div id="container">
     <h2>Вы просматриваете: </h2>
-        <h2><strong> {{ Flower.flower_name }}</strong></h2>
-            <p><img id="id_img" src="{{ Flower.img.url }}"> </p>
-            <p id="id_color">Цвет: {{ Flower.color }}</p>
-            <p id="id_country">Страна: {{ Flower.country }}</p>
-            <p id="id_price">Цена: {{ Flower.price }}</p>
+        <h2><strong> {{ flower.flower_name }}</strong></h2>
+            <p><img id="id_img" src="{{ flower.img.url }}"> </p>
+            <p id="id_color">Цвет: {{ flower.color }}</p>
+            <p id="id_country">Страна: {{ flower.country }}</p>
+            <p id="id_price">Цена: {{ flower.price }}</p>
 </div>
 {% endblock %}
 
