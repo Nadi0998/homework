@@ -124,7 +124,7 @@ class IndexView(TemplateView):
     def get(self, *args, **kwargs):
         data = {
             'flowers': Flower.objects.all(),
-            'front_page': True
+            # 'front_page': True
         }
         return render(self.request, 'index.html', data)
 
