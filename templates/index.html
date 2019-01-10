@@ -10,7 +10,7 @@
 
     <div class="list-group">
     {% for flower in flowers %}
-        <a class="list-group-item" href="{% url 'flower' flower.pk %}">
+        <a class="list-group-item" href="{% url 'flower' flower.pk %}" style="font-size: xx-large">
             <img src="{{ flower.img.url }}"
             width="300px"
             height="300px">
