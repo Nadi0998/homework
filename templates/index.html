@@ -11,7 +11,7 @@
     <div class="list-group">
     {% for flower in flowers %}
         <a class="list-group-item" href="{% url 'flower' flower.pk %}">
-            {{ flower.img }}
+            <img src="{{ flower.img }}">
             {{ flower.flower_name }}:
             {{ flower.price }}
         </a>
