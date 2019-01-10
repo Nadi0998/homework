@@ -26,7 +26,7 @@ urlpatterns = [
          name='django_registration_register'),
 
     path(r'accounts/', include('django_registration.backends.one_step.urls')),
-    path(r'accounts/profile/', ProfileView.as_view(), name='user_profile'),
+    path(r'accounts/profile/', ProfileView.as_view(), name='edit_user_profile'),
     # path(r'accounts/profile/edit/', EditProfileView.as_view(), name='edit_user_profile'),
     path(r'admin/', admin.site.urls),
 
