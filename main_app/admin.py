@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import Flower, User, Order, OrderDetail
+from .models import Flower, User, Order, OrderDetail, Client
 from .forms.UserForms import CustomUserChangeForm
 
 
@@ -18,3 +18,4 @@ admin.site.register(Flower)
 admin.site.register(User, CustomUserAdmin)
 admin.site.register(Order)
 admin.site.register(OrderDetail)
+admin.site.register(Client)
